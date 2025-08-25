@@ -312,11 +312,11 @@ textarea:focus {
 
 @media (max-width: 600px) {
     body.contacto {
-        font-size: 14px;
+        font-size: 5px;
     }
 
     .seccion-contacto h2 {
-        font-size: 1.4rem;
+        font-size: 1.rem;
     }
 
     .seccion-contacto p,
