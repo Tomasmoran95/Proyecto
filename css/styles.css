@@ -306,3 +306,85 @@ textarea:focus {
         font-size: 1rem;
     }
 }
+/* =========================== */
+/* CONTACTO - TIPOGRAFÍA MÓVIL */
+/* =========================== */
+
+@media (max-width: 600px) {
+    body.contacto {
+        font-size: 14px;
+    }
+
+    .seccion-contacto h2 {
+        font-size: 1.4rem;
+    }
+
+    .seccion-contacto p,
+    label,
+    input,
+    textarea,
+    .btn-enviar {
+        font-size: 0.9rem;
+    }
+
+    .formulario-contacto {
+        padding: 1rem;
+    }
+
+    .campo {
+        margin-bottom: 1rem;
+    }
+}
+/* Botón hamburguesa oculto por defecto */
+#btn-hamburguesa {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+/* Menú por defecto en desktop */
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+}
+
+/* Responsive: móvil */
+@media (max-width: 768px) {
+    /* Mostrar botón hamburguesa */
+    #btn-hamburguesa {
+        display: block;
+    }
+
+    /* Ocultar menú por defecto */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        background-color: antiquewhite; 
+        border-radius: 6px;
+        padding: 10px 0;
+    }
+
+    /* Mostrar menú al activar la clase activo */
+    nav ul.activo {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 0;
+        font-size: 1.1rem;
+        color: black;
+    }
+}

@@ -10,22 +10,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="contacto">
-
-    <header>
-        <div class="logo-container">
-            <img src="../asset/img/55d7d05c96c8629c7c2a72673f1a0ba4.jpg" alt="Logo de la empresa">
-        </div>
-        <hr id="linea"> 
-        <nav>
-            <ul>
-                <li><a href="../index.html">INICIO</a></li>
-                <li><a href="./quienes-somos.html">QUIÉNES SOMOS</a></li>
-                <li><a href="./formulario-inicio-de-sesión.html">INICIO DE SESIÓN</a></li>
-                <li><a href="./productos.html">PRODUCTOS</a></li>
-                <li><a href="#" aria-current="page">CONTACTO</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+  <div class="logo-container">
+    <img src="../asset/img/55d7d05c96c8629c7c2a72673f1a0ba4.jpg" alt="Logo de la empresa">
+  </div>
+  <hr id="linea">
+  
+  <nav>
+    <button id="btn-hamburguesa" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-nav">
+    &#9776; <!-- ☰ -->
+  </button>
+    <ul id="menu-nav">
+      <li><a href="../index.html">INICIO</a></li>
+      <li><a href="./quienes-somos.html">QUIÉNES SOMOS</a></li>
+      <li><a href="./formulario-inicio-de-sesión.html">INICIO DE SESIÓN</a></li>
+      <li><a href="./productos.html">PRODUCTOS</a></li>
+      <li><a href="#" aria-current="page">CONTACTO</a></li>
+    </ul>
+  </nav>
+</header>
 
     <main>
         <section class="seccion-contacto">
@@ -63,4 +66,15 @@
     </main>
 
 </body>
+<script>
+  const btnHamburguesa = document.getElementById('btn-hamburguesa');
+  const menuNav = document.getElementById('menu-nav');
+
+  btnHamburguesa.addEventListener('click', () => {
+    const expanded = btnHamburguesa.getAttribute('aria-expanded') === 'true';
+    btnHamburguesa.setAttribute('aria-expanded', !expanded);
+    menuNav.classList.toggle('activo');
+  });
+</script>
+
 </html>

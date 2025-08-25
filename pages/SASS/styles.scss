@@ -1,0 +1,433 @@
+// =======================
+// VARIABLES
+// =======================
+$color-principal: rgb(55, 79, 121);
+$color-secundario: antiquewhite;
+$color-header-border: white;
+$color-texto: black;
+$color-facebook-hover: cadetblue;
+$color-footer-bg: rgb(11, 10, 46);
+$color-banner-bg: rgba(10, 25, 47, 0.7);
+$color-boton: #00bcd4;
+$color-boton-hover: #0097a7;
+$color-enlace-hover: #00e5ff;
+
+$font-principal: 'Crimson Text', serif;
+$font-banner: 'Roboto', sans-serif;
+$font-contacto: 'Inter', sans-serif;
+
+// =======================
+// IMPORTACIÓN DE FUENTES
+// =======================
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+// =======================
+// GLOBAL RESET
+// =======================
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// =======================
+// MIXINS
+// =======================
+
+// Mixin para botones con animación de brillo en hover
+@mixin boton-estilo($bg, $hover-bg, $color: white) {
+  background-color: $bg;
+  color: $color;
+  padding: 14px 35px;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.5);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-position: 200% 0;
+
+  &:hover {
+    background-color: $hover-bg;
+    box-shadow: 0 6px 20px rgba(0, 151, 167, 0.7);
+    transform: translateY(-3px);
+    animation: brillo 1.5s linear infinite;
+  }
+}
+
+// =======================
+// ANIMACIONES
+// =======================
+@keyframes brillo {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+// =======================
+// ESTILOS GENERALES
+// =======================
+body {
+  &.inicio {
+    background-color: $color-principal;
+    font-family: $font-principal;
+  }
+
+  &.contacto {
+    background-color: #f0f2f5;
+    font-family: $font-contacto;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+h1 {
+  color: rgb(59, 59, 236);
+}
+
+#linea {
+  margin: 10px;
+  border: none;
+  border-top: 2px solid black;
+}
+
+// =======================
+// HEADER
+// =======================
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 10px solid $color-header-border;
+  background-color: $color-secundario;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+
+    img {
+      width: 64px;
+    }
+  }
+
+  nav {
+    width: 100%;
+    display: inline-block;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style-type: none;
+
+      li {
+        a {
+          color: $color-texto;
+          text-decoration: none;
+        }
+      }
+
+      &.activo {
+        display: flex;
+      }
+    }
+  }
+}
+
+// =======================
+// BANNER
+// =======================
+.banner {
+  background-image: linear-gradient($color-banner-bg, $color-banner-bg),
+    url(../asset/img/55d7d05c96c8629c7c2a72673f1a0ba4.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  position: relative;
+  font-family: $font-banner;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+
+  .contenido-banner {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0.6em;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+
+      span {
+        color: $color-enlace-hover;
+        text-shadow: 2px 2px 8px rgba(0, 229, 255, 0.8);
+      }
+    }
+
+    p {
+      font-size: 1.3rem;
+      line-height: 1.5;
+      margin-bottom: 2em;
+      color: #cbd5e1;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .boton-principal {
+      @include boton-estilo($color-boton, $color-boton-hover);
+    }
+  }
+}
+
+// =======================
+// MAIN
+// =======================
+main {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 40px;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+// =======================
+// SECCIONES DE PRODUCTOS
+// =======================
+#placa-de-video,
+#procesador,
+#motherboard {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  height: auto;
+  opacity: 1;
+}
+
+// =======================
+// FORMULARIO DE CONTACTO
+// =======================
+.seccion-contacto {
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: #555;
+  }
+}
+
+.formulario-contacto {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .grid-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    .campo {
+      display: flex;
+      flex-direction: column;
+
+      &.campo-mensaje {
+        grid-column: span 2;
+      }
+
+      label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      input,
+      textarea {
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+
+        &:focus {
+          border-color: #007BFF;
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .boton-container {
+    margin-top: 2rem;
+    text-align: right;
+
+    .btn-enviar {
+      background-color: #007BFF;
+      color: white;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}
+
+// =======================
+// FOOTER
+// =======================
+.redes-sociales {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  background-color: $color-footer-bg;
+
+  a {
+    color: white;
+    font-size: 28px;
+    transition: color 0.3s, transform 0.3s;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-facebook-hover;
+      transform: scale(1.2);
+    }
+  }
+}
+
+// =======================
+// BOTÓN HAMBURGUESA
+// =======================
+#btn-hamburguesa {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+// =======================
+// MEDIA QUERIES
+// =======================
+@media (max-width: 768px) {
+  .banner {
+    padding: 80px 15px;
+
+    h1 {
+      font-size: 2.6rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    .boton-principal {
+      padding: 12px 25px;
+      font-size: 1rem;
+    }
+  }
+
+  #btn-hamburguesa {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    background-color: $color-secundario;
+    border-radius: 6px;
+    padding: 10px 0;
+  }
+
+  nav ul.activo {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    color: $color-texto;
+  }
+}
+
+@media (max-width: 600px) {
+  body.contacto {
+    font-size: 14px;
+  }
+
+  .seccion-contacto h2 {
+    font-size: 1.4rem;
+  }
+
+  .seccion-contacto p,
+  label,
+  input,
+  textarea,
+  .btn-enviar {
+    font-size: 0.9rem;
+  }
+
+  .formulario-contacto {
+    padding: 1rem;
+  }
+
+  .campo {
+    margin-bottom: 1rem;
+  }
+
+  .grid-form {
+    grid-template-columns: 1fr;
+  }
+
+  .campo-mensaje {
+    grid-column: span 1;
+  }
+
+  .boton-container {
+    text-align: center;
+  }
+
+  .btn-enviar {
+    width: 100%;
+    max-width: 300px;
+  }
+}
