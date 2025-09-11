@@ -10,24 +10,27 @@
 <body class="quienes-somos">
 
     <header>
-        <div class="logo-container">
-            <img src="../asset/img/55d7d05c96c8629c7c2a72673f1a0ba4.jpg" alt="logo">
-        </div>
+    <div class="logo-container">
+        <img src="../asset/img/55d7d05c96c8629c7c2a72673f1a0ba4.jpg" alt="logo">
+    </div>
 
-        <hr id="linea"> 
+    <!-- Botón hamburguesa -->
+    <button id="btn-hamburguesa" aria-label="Menú">☰</button>
 
-        <nav>
-            <ul>
-                <li><a href="../index.html">INICIO</a></li>
-                <li><a href="#">QUIÉNES SOMOS</a></li>
-                <li><a href="./formulario-inicio-de-sesión.html">INICIO DE SESIÓN</a></li>
-                <li><a href="./productos.html">PRODUCTOS</a></li>
-                <li><a href="./contacto.html">CONTACTO</a></li>
-            </ul>
-        </nav>
+    <!-- Menú de navegación -->
+    <nav>
+        <ul id="menu">
+            <li><a href="../index.html">INICIO</a></li>
+            <li><a href="#">QUIÉNES SOMOS</a></li>
+            <li><a href="./formulario-inicio-de-sesión.html">INICIO DE SESIÓN</a></li>
+            <li><a href="./productos.html">PRODUCTOS</a></li>
+            <li><a href="./contacto.html">CONTACTO</a></li>
+        </ul>
+    </nav>
 
-        <hr id="linea"> 
-    </header>
+    <hr id="linea">
+</header>
+
 
     <main>
         <section class="descripcion-empresa">
@@ -43,6 +46,14 @@
             </video>
         </section>
     </main>
+<script>
+    const btnHamburguesa = document.getElementById('btn-hamburguesa');
+    const menu = document.getElementById('menu');
+
+    btnHamburguesa.addEventListener('click', () => {
+        menu.classList.toggle('activo');
+    });
+</script>
 
 </body>
 </html>
